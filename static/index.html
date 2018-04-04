@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car</title>
+    <script src="/static/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="/static/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link href="/static/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+    <script>
+        $(document).ready(function(){
+
+                $('#forward').click(function() { $.ajax('/forward'); });
+                $('#left').click(function() { $.ajax('/left'); });
+                $('#right').click(function() { $.ajax('/right'); });
+                $('#back').click(function() { $.ajax('/back'); });
+                $('#stop').click(function() { $.ajax('/stop'); });
+        });
+        $(document).ready(function () {
+          function reorient(e) {
+            var portrait = (window.orientation % 180 == 0);
+            $("body > div").css("-webkit-transform", !portrait ? "rotate(-90deg)" : "");
+          }
+          //window.onorientationchange = reorient;
+          //window.setTimeout(reorient, 0);
+        });
+
+
+    </script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="container">
+        <!-- 16:9 aspect ratio -->
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"></iframe>
+        </div>
+    </div>
+    <hr/>
+    <div class="row justify-content-center mb-2">
+        <div class="col-2"><a id="forward" class="btn btn-block btn-lg btn-success"
+                              href="javascript: false;"><span class="oi oi-caret-top" title="icon name"
+                                                              aria-hidden="true"></span></a></div>
+    </div>
+    <div class="row justify-content-center mb-2">
+        <div class="col-2"><a id="left" class="btn btn-block btn-lg btn-success" href="javascript: false;"><span
+                class="oi oi-caret-left" title="icon name" aria-hidden="true"></span></a>
+        </div>
+        <div class="col-2"><a id="stop" class="btn btn-block btn-lg btn-danger" href="javascript: false;"><span
+                class="oi oi-ban" title="icon name" aria-hidden="true"></span></a></div>
+        <div class="col-2"><a id="right" class="btn btn-block btn-lg btn-success" href="javascript: false;"><span
+                class="oi oi-caret-right" title="icon name" aria-hidden="true"></span></a>
+        </div>
+    </div>
+    <div class="row justify-content-center mb-2">
+        <div class="col-2"><a id="back" class="btn btn-block btn-lg btn-success" href="javascript: false;"><span
+                class="oi oi-caret-bottom" title="icon name" aria-hidden="true"></span></a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
