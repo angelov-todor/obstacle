@@ -1,10 +1,10 @@
 import RPi.GPIO as GPIO  # Import GPIO library
+# Import time library
 import time
 from flask import Flask, request
 
 app = Flask('my first app', static_url_path='/static')
 
-# Import time library
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)  # programming the GPIO by BCM pin numbers
 
